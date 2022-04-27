@@ -1,3 +1,7 @@
+import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
 import 'package:flutter/material.dart';
 
 /// Models:
@@ -121,10 +125,10 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   ),
                 ),
-                Icon(Icons.directions_transit),
-                Icon(Icons.directions_bike),
-                Icon(Icons.directions_car),
-                Icon(Icons.directions_transit),
+                ChatTab(),
+                GroupTab(),
+                StatusTab(),
+                CallTab(),
               ],
             ),
           ),
