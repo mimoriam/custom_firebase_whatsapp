@@ -47,7 +47,7 @@ class SpeedDialWidget extends StatelessWidget {
             backgroundColor: const Color(0xFF00cea2),
             child: IconTheme(
               data: IconThemeData(
-                color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.white : Colors.black,
+                color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.black : Colors.white,
               ),
               child: const Icon(
                 Icons.add_comment_sharp,

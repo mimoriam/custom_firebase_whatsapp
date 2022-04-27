@@ -45,6 +45,7 @@ class ThemeStateProvider extends ChangeNotifier {
   _saveToPrefs() async {
     await _initPrefs();
     _prefs!.setBool(key, _darkTheme);
+    notifyListeners();
   }
 }
 
