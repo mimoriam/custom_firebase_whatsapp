@@ -53,7 +53,31 @@ class _HomeScreenState extends State<HomeScreen>
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  title: const Text('Tabs Demo'),
+                  backgroundColor: Color(0xFF354c5a),
+                  title: const Text('WhatsApp'),
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.dark_mode),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.search),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(Icons.more_vert),
+                      ),
+                    ),
+                  ],
                   pinned: true,
                   floating: true,
                   snap: false,
@@ -63,6 +87,9 @@ class _HomeScreenState extends State<HomeScreen>
                     isScrollable: true,
                     indicatorSize: TabBarIndicatorSize.label,
                     labelPadding: const EdgeInsets.symmetric(horizontal: 14),
+                    labelColor: Color(0xFF178b74),
+                    unselectedLabelColor: Color(0xFF85969e),
+                    indicatorColor: Color(0xFF178b74),
                     onTap: (int index) {},
                     tabs: [
                       Container(
@@ -88,7 +115,10 @@ class _HomeScreenState extends State<HomeScreen>
                     onTap: () {
                       _controller.animateTo(1);
                     },
-                    child: Icon(Icons.directions_car, size: 350,),
+                    child: Icon(
+                      Icons.directions_car,
+                      size: 350,
+                    ),
                   ),
                 ),
                 Icon(Icons.directions_transit),
