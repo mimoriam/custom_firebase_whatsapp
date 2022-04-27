@@ -1,7 +1,3 @@
-import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
 import 'package:flutter/material.dart';
 
 /// Models:
@@ -9,6 +5,14 @@ import 'package:flutter/material.dart';
 /// Screens:
 
 /// Widgets:
+import 'package:custom_firebase_whatsapp/screens/home/widgets/camera_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
+import 'package:provider/provider.dart';
+
+import '../../state/theme_state.dart';
 
 /// Services:
 
@@ -57,14 +61,18 @@ class _HomeScreenState extends State<HomeScreen>
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  backgroundColor: Color(0xFF354c5a),
+                  backgroundColor: const Color(0xFF354c5a),
                   title: const Text('WhatsApp'),
                   actions: [
                     Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: GestureDetector(
-                        onTap: () {},
-                        child: Icon(Icons.dark_mode),
+                        onTap: () {
+                          Provider.of<ThemeStateProvider>(context, listen: false).toggleTheme();
+                        },
+                        child: Provider.of<ThemeStateProvider>(context).darkTheme
+                            ? Icon(Icons.dark_mode)
+                            : Icon(Icons.light_mode),
                       ),
                     ),
                     Padding(
@@ -114,17 +122,7 @@ class _HomeScreenState extends State<HomeScreen>
             body: TabBarView(
               controller: _controller,
               children: [
-                SizedBox.expand(
-                  child: GestureDetector(
-                    onTap: () {
-                      _controller.animateTo(1);
-                    },
-                    child: Icon(
-                      Icons.directions_car,
-                      size: 350,
-                    ),
-                  ),
-                ),
+                CameraTab(controller: _controller),
                 ChatTab(),
                 GroupTab(),
                 StatusTab(),
