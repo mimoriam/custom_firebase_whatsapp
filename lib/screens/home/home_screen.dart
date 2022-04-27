@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 
 /// Widgets:
 import 'package:custom_firebase_whatsapp/screens/home/widgets/camera_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab/chat_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/group_tab/groups_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab/status_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/speed_dial.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab/call_tab.dart';
 import 'package:flutter/services.dart';
 
 /// Services:
