@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+/// Models:
+
+/// Screens:
+
+/// Widgets:
+
+/// Services:
+
+/// State:
+
+/// Utils/Helpers:
+
+/// Entry Point:
 class CallTab extends StatefulWidget {
   const CallTab({Key? key}) : super(key: key);
 

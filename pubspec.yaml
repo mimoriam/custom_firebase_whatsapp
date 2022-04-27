@@ -39,6 +39,7 @@ dependencies:
   go_router: ^3.1.0
   path: ^1.8.0
   path_provider: ^2.0.9
+  flutter_speed_dial: ^5.1.0
 
 dev_dependencies:
   flutter_test:

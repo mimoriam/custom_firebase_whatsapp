@@ -6,19 +6,18 @@ import 'package:flutter/material.dart';
 
 /// Widgets:
 import 'package:custom_firebase_whatsapp/screens/home/widgets/camera_tab.dart';
-import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/speed_dial.dart';
+import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-
-import '../../state/theme_state.dart';
-
 /// Services:
 
 /// State:
+import 'package:provider/provider.dart';
 
+import '../../state/theme_state.dart';
 /// Utils/Helpers:
 import '../../utils/responsive_helper.dart';
 
@@ -37,6 +36,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   late TabController _controller;
   bool indexIsNotOne = true;
+
+  var isDialOpen = ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -140,6 +141,7 @@ class _HomeScreenState extends State<HomeScreen>
           desktop: Container(),
         ),
       ),
+      floatingActionButton: SpeedDialWidget(isDialOpen: isDialOpen),
     );
   }
 }

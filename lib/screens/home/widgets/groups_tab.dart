@@ -1,5 +1,18 @@
 import 'package:flutter/material.dart';
 
+/// Models:
+
+/// Screens:
+
+/// Widgets:
+
+/// Services:
+
+/// State:
+
+/// Utils/Helpers:
+
+/// Entry Point:
 class GroupTab extends StatefulWidget {
   const GroupTab({Key? key}) : super(key: key);
 
