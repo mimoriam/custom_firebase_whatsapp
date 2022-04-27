@@ -12,12 +12,13 @@ import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/speed_dial.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
 import 'package:flutter/services.dart';
+
 /// Services:
 
 /// State:
 import 'package:provider/provider.dart';
-
 import '../../state/theme_state.dart';
+
 /// Utils/Helpers:
 import '../../utils/responsive_helper.dart';
 
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.build(context);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF354c5a),
+        statusBarColor: Color(0xFF1f2c34),
       ),
     );
     // Size _size = MediaQuery.of(context).size;
@@ -68,8 +69,14 @@ class _HomeScreenState extends State<HomeScreen>
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  backgroundColor: const Color(0xFF354c5a),
-                  title: const Text('WhatsApp'),
+                  actionsIconTheme: const IconThemeData(
+                    color: Color(0xFF85969e),
+                  ),
+                  backgroundColor: const Color(0xFF1f2c34),
+                  title: const Text(
+                    'WhatsApp',
+                    style: TextStyle(color: Color(0xFF85969e)),
+                  ),
                   actions: [
                     Padding(
                       padding: const EdgeInsets.only(right: 20),
@@ -78,22 +85,22 @@ class _HomeScreenState extends State<HomeScreen>
                           Provider.of<ThemeStateProvider>(context, listen: false).toggleTheme();
                         },
                         child: Provider.of<ThemeStateProvider>(context).darkTheme
-                            ? Icon(Icons.dark_mode)
-                            : Icon(Icons.light_mode),
+                            ? const Icon(Icons.dark_mode)
+                            : const Icon(Icons.light_mode),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.search),
+                        child: const Icon(Icons.search),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 14),
                       child: GestureDetector(
                         onTap: () {},
-                        child: Icon(Icons.more_vert),
+                        child: const Icon(Icons.more_vert),
                       ),
                     ),
                   ],
@@ -106,9 +113,9 @@ class _HomeScreenState extends State<HomeScreen>
                     isScrollable: true,
                     indicatorSize: TabBarIndicatorSize.label,
                     labelPadding: const EdgeInsets.symmetric(horizontal: 14),
-                    labelColor: Color(0xFF178b74),
-                    unselectedLabelColor: Color(0xFF85969e),
-                    indicatorColor: Color(0xFF178b74),
+                    labelColor: const Color(0xFF178b74),
+                    unselectedLabelColor: const Color(0xFF85969e),
+                    indicatorColor: const Color(0xFF178b74),
                     onTap: (int index) {},
                     tabs: [
                       Container(

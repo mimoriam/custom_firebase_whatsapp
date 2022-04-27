@@ -1,3 +1,4 @@
+import 'package:custom_firebase_whatsapp/state/theme_state.dart';
 import 'package:flutter/material.dart';
 
 /// Models:
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 
 /// Widgets:
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:provider/provider.dart';
 
 /// Services:
 
@@ -43,7 +45,14 @@ class SpeedDialWidget extends StatelessWidget {
       children: [
         SpeedDialChild(
             backgroundColor: const Color(0xFF00cea2),
-            child: const Icon(Icons.add_comment),
+            child: IconTheme(
+              data: IconThemeData(
+                color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.white : Colors.black,
+              ),
+              child: const Icon(
+                Icons.add_comment_sharp,
+              ),
+            ),
             onTap: () {
               debugPrint("Onward to create chat screen");
             })
