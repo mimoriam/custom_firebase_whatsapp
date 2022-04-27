@@ -10,6 +10,7 @@ import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/chat_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../state/theme_state.dart';
@@ -53,6 +54,11 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFF354c5a),
+      ),
+    );
     // Size _size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
@@ -76,14 +82,14 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 20),
+                      padding: const EdgeInsets.only(right: 16),
                       child: GestureDetector(
                         onTap: () {},
                         child: Icon(Icons.search),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 12),
+                      padding: const EdgeInsets.only(right: 14),
                       child: GestureDetector(
                         onTap: () {},
                         child: Icon(Icons.more_vert),
