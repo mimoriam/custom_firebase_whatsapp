@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:custom_firebase_whatsapp/constants/constants.dart';
 
 /// Models:
 
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.build(context);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF1f2c34),
+        statusBarColor: Color(kAppBarColor),
       ),
     );
     // Size _size = MediaQuery.of(context).size;
@@ -70,12 +71,12 @@ class _HomeScreenState extends State<HomeScreen>
               return <Widget>[
                 SliverAppBar(
                   actionsIconTheme: const IconThemeData(
-                    color: Color(0xFF85969e),
+                    color: Color(kAppBarIconsOrLabelColor),
                   ),
-                  backgroundColor: const Color(0xFF1f2c34),
+                  backgroundColor: const Color(kAppBarColor),
                   title: const Text(
                     'WhatsApp',
-                    style: TextStyle(color: Color(0xFF85969e)),
+                    style: TextStyle(color: Color(kAppBarIconsOrLabelColor)),
                   ),
                   actions: [
                     Padding(
@@ -113,9 +114,9 @@ class _HomeScreenState extends State<HomeScreen>
                     isScrollable: true,
                     indicatorSize: TabBarIndicatorSize.label,
                     labelPadding: const EdgeInsets.symmetric(horizontal: 14),
-                    labelColor: const Color(0xFF178b74),
-                    unselectedLabelColor: const Color(0xFF85969e),
-                    indicatorColor: const Color(0xFF178b74),
+                    labelColor: const Color(kAppBarIndicatorColor),
+                    unselectedLabelColor: const Color(kAppBarIconsOrLabelColor),
+                    indicatorColor: const Color(kAppBarIndicatorColor),
                     onTap: (int index) {},
                     tabs: [
                       Container(

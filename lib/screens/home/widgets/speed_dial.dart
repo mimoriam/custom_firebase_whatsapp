@@ -1,5 +1,5 @@
-import 'package:custom_firebase_whatsapp/state/theme_state.dart';
 import 'package:flutter/material.dart';
+import '../../../constants/constants.dart';
 
 /// Models:
 
@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 /// Services:
 
 /// State:
+import 'package:custom_firebase_whatsapp/state/theme_state.dart';
 
 /// Utils/Helpers:
 
@@ -27,7 +28,7 @@ class SpeedDialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
-      backgroundColor: const Color(0xFF00cea2),
+      backgroundColor: const Color(kSpeedDialColor),
       icon: Icons.add,
       activeIcon: Icons.close,
       spacing: 3,
@@ -44,7 +45,7 @@ class SpeedDialWidget extends StatelessWidget {
       childrenButtonSize: const Size(60.0, 60.0),
       children: [
         SpeedDialChild(
-            backgroundColor: const Color(0xFF00cea2),
+            backgroundColor: const Color(kSpeedDialColor),
             child: IconTheme(
               data: IconThemeData(
                 color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.black : Colors.white,
