@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Models:
-
-/// Screens:
-
-/// Widgets:
-
-/// Services:
-
-/// State:
-
-/// Utils/Helpers:
-
-/// Entry Point:
 class ResponsiveHelper extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;

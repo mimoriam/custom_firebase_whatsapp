@@ -138,7 +138,15 @@ class _HomeScreenState extends State<HomeScreen>
               controller: _controller,
               children: [
                 CameraTab(controller: _controller),
-                ChatTab(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: ListView.builder(
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return ChatTab(imageUrl: 'https://picsum.photos/id/237/200/300');
+                    },
+                  ),
+                ),
                 GroupTab(),
                 StatusTab(),
                 CallTab(),
