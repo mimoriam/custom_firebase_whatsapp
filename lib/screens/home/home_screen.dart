@@ -147,7 +147,15 @@ class _HomeScreenState extends State<HomeScreen>
                     },
                   ),
                 ),
-                GroupTab(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: ListView.builder(
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return GroupTab(imageUrl: 'https://picsum.photos/id/237/200/300');
+                    },
+                  ),
+                ),
                 StatusTab(),
                 CallTab(),
               ],
