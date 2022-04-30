@@ -40,7 +40,7 @@ class SpeedDialWidget extends StatelessWidget {
       heroTag: 'speed-dial-hero-tag',
       elevation: 8.0,
       isOpenOnStart: false,
-      animationSpeed: 200,
+      animationDuration: const Duration(milliseconds: 200),
       renderOverlay: false,
       childrenButtonSize: const Size(60.0, 60.0),
       children: [

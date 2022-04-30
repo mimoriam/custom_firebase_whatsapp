@@ -44,7 +44,7 @@ dependencies:
   responsive_builder: ^0.4.2
 
   # UI widgets:
-  flutter_speed_dial: ^5.1.0
+  flutter_speed_dial: ^6.0.0
   cached_network_image: ^3.2.0
 
 dev_dependencies:
