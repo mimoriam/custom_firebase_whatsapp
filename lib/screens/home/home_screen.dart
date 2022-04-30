@@ -37,21 +37,31 @@ class _HomeScreenState extends State<HomeScreen>
   bool get wantKeepAlive => true;
 
   late TabController _controller;
-  bool indexIsNotOne = true;
+  final initialIndex = 1;
+  final tabsCount = 5;
 
   var isDialOpen = ValueNotifier<bool>(false);
 
   @override
   void initState() {
-    _controller = TabController(length: 5, vsync: this);
-    _controller.animateTo(1);
     super.initState();
+
+    _controller = TabController(length: tabsCount, initialIndex: initialIndex, vsync: this);
+    // _controller.animateTo(1);
+    _controller.addListener(handleTabIndex);
   }
 
   @override
   void dispose() {
-    super.dispose();
+    _controller.removeListener(handleTabIndex);
     _controller.dispose();
+
+    super.dispose();
+  }
+
+  void handleTabIndex() {
+    setState(() {
+    });
   }
 
   @override
@@ -170,7 +180,11 @@ class _HomeScreenState extends State<HomeScreen>
           desktop: (BuildContext context) => Container(),
         ),
       ),
-      floatingActionButton: SpeedDialWidget(isDialOpen: isDialOpen),
+      floatingActionButton: SpeedDialWidget(
+        isDialOpen: isDialOpen,
+        controller: _controller,
+      ),
     );
   }
+
 }
