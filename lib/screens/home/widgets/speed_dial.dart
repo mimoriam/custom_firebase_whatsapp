@@ -7,11 +7,11 @@ import '../../../constants/constants.dart';
 
 /// Widgets:
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:provider/provider.dart';
 
 /// Services:
 
 /// State:
+import 'package:provider/provider.dart';
 import 'package:custom_firebase_whatsapp/state/theme_state.dart';
 
 /// Utils/Helpers:

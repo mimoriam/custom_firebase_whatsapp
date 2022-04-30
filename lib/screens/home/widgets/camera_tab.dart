@@ -30,10 +30,7 @@ class _CameraTabState extends State<CameraTab> {
         onTap: () {
           widget.controller.animateTo(1);
         },
-        child: Icon(
-          Icons.directions_car,
-          size: 350,
-        ),
+        child: const Icon(Icons.directions_car),
       ),
     );
   }

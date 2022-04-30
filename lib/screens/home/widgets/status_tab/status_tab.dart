@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:custom_firebase_whatsapp/constants/constants.dart';
 
 /// Models:
 
@@ -52,22 +53,22 @@ class _StatusTabState extends State<StatusTab> {
                   child: RawMaterialButton(
                     onPressed: () {},
                     // elevation: 2.0,
-                    fillColor: Color(0xFF00a884),
-                    child: Icon(
+                    fillColor: const Color(kStatusTabIconColor),
+                    child: const Icon(
                       Icons.add,
                       color: Colors.white,
                     ),
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                   ),
                 ),
               ],
             ),
           ),
-          title: Text("My status"),
-          subtitle: Text("Tap to add status update"),
+          title: const Text("My status"),
+          subtitle: const Text("Tap to add status update"),
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(17, 12, 10, 12),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(17, 12, 10, 12),
           child: Text("Viewed updates"),
         ),
         Expanded(
@@ -80,8 +81,8 @@ class _StatusTabState extends State<StatusTab> {
                   backgroundImage: CachedNetworkImageProvider(widget.userProfileImage),
                   backgroundColor: Colors.transparent,
                 ),
-                title: Text("My status"),
-                subtitle: Text("Tap to add status update"),
+                title: const Text("Name of person"),
+                subtitle: const Text("Yesterday, 11:18 PM"),
               );
             },
           ),
