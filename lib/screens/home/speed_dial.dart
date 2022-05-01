@@ -30,6 +30,11 @@ class SpeedDialWidget extends StatefulWidget {
 class _SpeedDialWidgetState extends State<SpeedDialWidget> {
   @override
   Widget build(BuildContext context) {
+
+    if (widget.controller.index == 0) {
+      return Container();
+    }
+
     if (widget.controller.index == 3) {
       return SpeedDial(
         backgroundColor: const Color(kSpeedDialColor),

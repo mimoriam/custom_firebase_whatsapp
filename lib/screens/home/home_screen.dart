@@ -60,8 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void handleTabIndex() {
-    setState(() {
-    });
+    setState(() {});
   }
 
   @override
@@ -164,7 +163,10 @@ class _HomeScreenState extends State<HomeScreen>
                       userProfileImage: 'https://picsum.photos/id/237/200/300',
                       itemCount: 5,
                     ),
-                    CallTab(),
+                    CallTab(
+                      userProfileImage: 'https://picsum.photos/id/237/200/300',
+                      itemCount: 5,
+                    ),
                   ],
                 ),
               ),
@@ -186,5 +188,4 @@ class _HomeScreenState extends State<HomeScreen>
       ),
     );
   }
-
 }
