@@ -30,7 +30,6 @@ class SpeedDialWidget extends StatefulWidget {
 class _SpeedDialWidgetState extends State<SpeedDialWidget> {
   @override
   Widget build(BuildContext context) {
-
     if (widget.controller.index == 0) {
       return Container();
     }
@@ -102,7 +101,7 @@ class _SpeedDialWidgetState extends State<SpeedDialWidget> {
             ),
             onTap: () {
               debugPrint("Onward to create chat screen");
-            })
+            }),
       ],
     );
   }

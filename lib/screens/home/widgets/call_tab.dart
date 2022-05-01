@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 /// Models:
@@ -12,6 +11,7 @@ import 'package:flutter/material.dart';
 /// State:
 
 /// Utils/Helpers:
+import 'package:cached_network_image/cached_network_image.dart';
 
 /// Entry Point:
 class CallTab extends StatefulWidget {
