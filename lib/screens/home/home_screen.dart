@@ -12,9 +12,9 @@ import 'package:custom_firebase_whatsapp/screens/home/widgets/groups_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/status_tab.dart';
 import 'package:custom_firebase_whatsapp/screens/home/speed_dial.dart';
 import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
-import 'package:flutter/services.dart';
 
 /// Services:
+import 'package:flutter/services.dart';
 
 /// State:
 import 'package:provider/provider.dart';
@@ -22,6 +22,7 @@ import '../../state/theme_state.dart';
 
 /// Utils/Helpers:
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 class HomeScreen extends StatefulWidget {
@@ -106,7 +107,9 @@ class _HomeScreenState extends State<HomeScreen>
                         Padding(
                           padding: const EdgeInsets.only(right: 16),
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              GoRouter.of(context).go('/login');
+                            },
                             child: const Icon(Icons.search),
                           ),
                         ),

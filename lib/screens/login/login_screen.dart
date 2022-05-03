@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../constants/constants.dart';
 
 /// Models:
@@ -16,6 +15,7 @@ import '../../constants/constants.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 class LoginScreen extends StatefulWidget {
@@ -32,8 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(kAppBarColor),
-        title: Text("Login"),
+        backgroundColor: const Color(kAppBarColor),
+        title: const Text("Login"),
       ),
       body: SafeArea(
         child: ScreenTypeLayout.builder(
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                labelStyle: TextStyle(),
+                                labelStyle: const TextStyle(),
                               ),
                             ),
                             FormBuilderTextField(
@@ -77,20 +77,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                labelStyle: TextStyle(),
+                                labelStyle: const TextStyle(),
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 GoRouter.of(context).go('/home');
                               },
-                              child: Text("Sign In"),
+                              child: const Text("Sign In"),
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 GoRouter.of(context).push('/register');
                               },
-                              child: Text("Register"),
+                              child: const Text("Register"),
                             ),
                           ],
                         ),

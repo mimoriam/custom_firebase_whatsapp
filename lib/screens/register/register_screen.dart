@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../../constants/constants.dart';
 
 /// Models:
@@ -17,6 +16,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 class RegisterScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(kAppBarColor),
-        title: Text("Register"),
+        title: const Text("Register"),
       ),
       body: SafeArea(
         child: ScreenTypeLayout.builder(
@@ -80,7 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                labelStyle: TextStyle(),
+                                labelStyle: const TextStyle(),
                               ),
                             ),
                             FormBuilderTextField(
@@ -95,18 +95,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                labelStyle: TextStyle(),
+                                labelStyle: const TextStyle(),
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () {},
-                              child: Text("Create Account"),
+                              child: const Text("Create Account"),
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 GoRouter.of(context).pop();
                               },
-                              child: Text("Go to Login"),
+                              child: const Text("Go to Login"),
                             ),
                           ],
                         ),

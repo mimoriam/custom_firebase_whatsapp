@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 /// Models:
 
@@ -12,6 +11,7 @@ import 'package:go_router/go_router.dart';
 /// State:
 
 /// Utils/Helpers:
+import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 
