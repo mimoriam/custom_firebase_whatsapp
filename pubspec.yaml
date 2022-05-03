@@ -46,6 +46,11 @@ dependencies:
   # UI widgets:
   flutter_speed_dial: ^6.0.0
   cached_network_image: ^3.2.0
+  camerawesome: ^0.3.0+1
+
+  # Form widgets:
+  flutter_form_builder: ^7.1.1
+  form_builder_validators: ^8.1.1
 
   # Animations:
 

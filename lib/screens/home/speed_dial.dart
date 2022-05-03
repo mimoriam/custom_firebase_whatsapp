@@ -93,7 +93,7 @@ class _SpeedDialWidgetState extends State<SpeedDialWidget> {
             backgroundColor: const Color(kSpeedDialColor),
             child: IconTheme(
               data: IconThemeData(
-                color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.black : Colors.white,
+                color: Provider.of<ThemeStateProvider>(context).darkTheme ? Colors.white : Colors.black,
               ),
               child: const Icon(
                 Icons.add_comment_sharp,

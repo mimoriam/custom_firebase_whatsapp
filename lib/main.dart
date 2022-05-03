@@ -19,8 +19,9 @@ import 'utils/app_routes.dart';
 // import 'package:device_preview/device_preview.dart';
 
 /// Entry Point:
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiProvider(
       providers: [
