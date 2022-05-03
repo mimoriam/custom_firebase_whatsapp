@@ -1,10 +1,4 @@
-enum APP_PAGE {
-  splash,
-  login,
-  home,
-  error,
-  onBoarding
-}
+enum APP_PAGE { splash, login, home, error, onBoarding }
 
 extension AppPageExtension on APP_PAGE {
   String get toPath {
@@ -44,17 +38,17 @@ extension AppPageExtension on APP_PAGE {
   String get toTitle {
     switch (this) {
       case APP_PAGE.home:
-        return "My App";
+        return "WhatsApp";
       case APP_PAGE.login:
-        return "My App Log In";
+        return "WhatsApp Log In";
       case APP_PAGE.splash:
-        return "My App Splash";
+        return "WhatsApp Splash";
       case APP_PAGE.error:
-        return "My App Error";
+        return "WhatsApp Error";
       case APP_PAGE.onBoarding:
-        return "Welcome to My App";
+        return "Welcome to WhatsApp";
       default:
-        return "My App";
+        return "WhatsApp";
     }
   }
 }

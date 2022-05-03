@@ -1,4 +1,3 @@
-import 'package:custom_firebase_whatsapp/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 /// Models:
@@ -6,7 +5,9 @@ import 'package:flutter/material.dart';
 /// Screens:
 import '../screens/home/home_screen.dart';
 import '../screens/error/error_screen.dart';
+import 'package:custom_firebase_whatsapp/screens/login/login_screen.dart';
 import 'package:custom_firebase_whatsapp/screens/register/register_screen.dart';
+import 'package:custom_firebase_whatsapp/screens/splash/splash_screen.dart';
 
 /// Widgets:
 
@@ -19,8 +20,13 @@ import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 final GoRouter goRouter = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/splash',
   routes: <GoRoute>[
+    GoRoute(
+      name: 'splash',
+      path: '/splash',
+      builder: (BuildContext context, GoRouterState state) => const SplashScreen(),
+    ),
     GoRoute(
       name: 'login',
       path: '/login',
