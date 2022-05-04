@@ -10,7 +10,7 @@ var appRoutes = {
   '/': (context) => const HomeScreen(),
   '/login': (context) => const LoginScreen(),
   '/register': (context) => const RegisterScreen(),
-  '/auth_check2': (context) => const AuthCheckScreen(),
+  '/auth_check': (context) => const AuthCheckScreen(),
   '/splash': (context) => const SplashScreen(),
   '/error': (context) => ErrorScreen(error: Exception("Error")),
 };

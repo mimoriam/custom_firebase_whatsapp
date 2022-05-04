@@ -33,6 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   final _formKey = GlobalKey<FormBuilderState>();
+  bool passwordVisible = false;
 
   @override
   void initState() {
@@ -74,7 +75,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FormBuilderTextField(
+                              name: 'name',
+                              keyboardType: TextInputType.text,
+                              validator: FormBuilderValidators.compose([
+                                FormBuilderValidators.required(),
+                                FormBuilderValidators.minLength(4),
+                              ]),
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              decoration: InputDecoration(
+                                labelText: "Name",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                labelStyle: const TextStyle(),
+                              ),
+                            ),
+                            FormBuilderTextField(
                               name: 'email',
+                              keyboardType: TextInputType.emailAddress,
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(),
                                 FormBuilderValidators.email(),
@@ -91,6 +109,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             FormBuilderTextField(
                               name: 'password',
+                              keyboardType: TextInputType.text,
+                              obscureText: !passwordVisible,
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(),
                                 FormBuilderValidators.minLength(6),
@@ -101,13 +121,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    passwordVisible ? Icons.visibility : Icons.visibility_off,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
+                                ),
                                 labelStyle: const TextStyle(),
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () async {
                                 final String? returnValue = await Auth(auth: _auth).createAccount(
-                                  displayName: "Mimo",
+                                  displayName: _formKey.currentState?.fields['name']?.value,
                                   email: _formKey.currentState?.fields['email']?.value,
                                   password: _formKey.currentState?.fields['password']?.value,
                                 );

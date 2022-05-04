@@ -32,6 +32,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  bool passwordVisible = false;
 
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -58,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             FormBuilderTextField(
                               name: 'email',
+                              keyboardType: TextInputType.emailAddress,
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(),
                                 FormBuilderValidators.email(),
@@ -74,6 +76,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             FormBuilderTextField(
                               name: 'password',
+                              keyboardType: TextInputType.text,
+                              obscureText: !passwordVisible,
                               validator: FormBuilderValidators.compose([
                                 FormBuilderValidators.required(),
                                 FormBuilderValidators.minLength(6),
@@ -83,6 +87,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                 labelText: "Password",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    passwordVisible ? Icons.visibility : Icons.visibility_off,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
                                 ),
                                 labelStyle: const TextStyle(),
                               ),
