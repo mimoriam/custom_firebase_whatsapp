@@ -1,6 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:custom_firebase_whatsapp/screens/register/register_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 
@@ -9,8 +6,11 @@ import '../../constants/constants.dart';
 /// Screens:
 
 /// Widgets:
+import 'package:custom_firebase_whatsapp/screens/register/register_screen.dart';
 
 /// Services:
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 /// State:
 
@@ -18,7 +18,6 @@ import '../../constants/constants.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../services/auth.dart';
 
@@ -129,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () async {
                                 await Auth(auth: _auth).signInWithGoogle();
                               },
-                              child: Text("Sign in with Google"),
+                              child: const Text("Sign in with Google"),
                             ),
                           ],
                         ),

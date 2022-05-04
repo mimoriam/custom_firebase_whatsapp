@@ -1,26 +1,37 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../services/auth.dart';
+/// Models:
+
+/// Screens:
 import 'home/home_screen.dart';
 import 'login/login_screen.dart';
 
-class AuthCheckScreenPartTwo extends StatefulWidget {
-  const AuthCheckScreenPartTwo({Key? key}) : super(key: key);
+/// Widgets:
+
+/// Services:
+import '../services/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+/// State:
+
+/// Utils/Helpers:
+
+/// Entry Point:
+class AuthCheckScreen extends StatefulWidget {
+  const AuthCheckScreen({Key? key}) : super(key: key);
 
   @override
-  State<AuthCheckScreenPartTwo> createState() => _AuthCheckScreenPartTwoState();
+  State<AuthCheckScreen> createState() => _AuthCheckScreenState();
 }
 
-class _AuthCheckScreenPartTwoState extends State<AuthCheckScreenPartTwo> {
+class _AuthCheckScreenState extends State<AuthCheckScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
-      // stream: FirebaseAuth.instance.authStateChanges(),
       stream: Auth(auth: _auth).user,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
@@ -28,9 +39,9 @@ class _AuthCheckScreenPartTwoState extends State<AuthCheckScreenPartTwo> {
 
           // If user's Id == null, go to Login Page, otherwise Home:
           if (snapshot.data?.uid == null) {
-            return LoginScreen();
+            return const LoginScreen();
           } else {
-            return HomeScreen();
+            return const HomeScreen();
           }
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(

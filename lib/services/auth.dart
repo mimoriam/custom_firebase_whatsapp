@@ -1,8 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+/// Models:
+
+/// Screens:
+
+/// Widgets:
+
+/// Services:
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+/// State:
+
+/// Utils/Helpers:
+
+/// Entry Point:
 
 class Auth {
   final FirebaseAuth auth;
@@ -53,15 +67,15 @@ class Auth {
   refreshToken: , tenantId: null, uid: t5m0tmuUUaZIOHsqGDRBGA6xdnZ2)
    */
 
-  Future<UserCredential?> signIn({required String email, required String password}) async {
+  Future<String?> signIn({required String email, required String password}) async {
     try {
-      return await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
       );
-      // if (auth.currentUser!.emailVerified) {
-      //   await auth.currentUser?.sendEmailVerification();
-      // }
+      if (auth.currentUser!.emailVerified) {
+        await auth.currentUser?.sendEmailVerification();
+      }
 
       saveUserToDB(provider: 'email');
 

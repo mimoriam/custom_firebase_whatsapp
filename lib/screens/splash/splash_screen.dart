@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 /// State:
 
 /// Utils/Helpers:
-import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 
@@ -30,9 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).go('/login');
             },
-            child: Text("Go to Login"),
+            child: const Text("Go to Login"),
           ),
         ),
       ),

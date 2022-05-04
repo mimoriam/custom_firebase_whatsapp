@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_firebase_whatsapp/constants/constants.dart';
 
@@ -16,6 +15,7 @@ import 'package:custom_firebase_whatsapp/screens/home/widgets/call_tab.dart';
 
 /// Services:
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 /// State:
 import 'package:provider/provider.dart';
@@ -23,7 +23,6 @@ import '../../state/theme_state.dart';
 
 /// Utils/Helpers:
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 class HomeScreen extends StatefulWidget {

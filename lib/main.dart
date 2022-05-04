@@ -1,18 +1,15 @@
 // import 'package:flutter/foundation.dart';
-import 'package:custom_firebase_whatsapp/screens/auth_check_screen_part2.dart';
-import 'package:custom_firebase_whatsapp/utils/routes.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:form_builder_validators/localization/l10n.dart';
-import 'package:flutterfire_ui/auth.dart';
 
 /// Models:
 
 /// Screens:
 
 /// Widgets:
+import 'package:custom_firebase_whatsapp/screens/auth_check_screen.dart';
 
 /// Services:
+import 'package:firebase_core/firebase_core.dart';
 
 /// State:
 import 'package:provider/provider.dart';
@@ -21,6 +18,7 @@ import 'state/theme_state.dart';
 
 /// Utils/Helpers:
 // import 'package:device_preview/device_preview.dart';
+import 'package:form_builder_validators/localization/l10n.dart';
 
 /// Entry Point:
 Future<void> main() async {
@@ -53,23 +51,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp.router(
-    //   theme: Provider.of<ThemeStateProvider>(context).darkTheme ? ThemeData.light() : ThemeData.dark(),
-    //   debugShowCheckedModeBanner: false,
-    //   routerDelegate: goRouter.routerDelegate,
-    //   routeInformationParser: goRouter.routeInformationParser,
-    //   // useInheritedMediaQuery: true,
-    //   // locale: DevicePreview.locale(context),
-    //   // builder: DevicePreview.appBuilder,
-    // );
-
     return MaterialApp(
       // routes: appRoutes,
       initialRoute: '/',
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         FormBuilderLocalizations.delegate,
       ],
       home: FutureBuilder(
@@ -86,7 +74,7 @@ class _MyAppState extends State<MyApp> {
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
-              return AuthCheckScreenPartTwo();
+              return const AuthCheckScreen();
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Scaffold(

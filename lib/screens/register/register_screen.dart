@@ -19,7 +19,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:go_router/go_router.dart';
 
 /// Entry Point:
 class RegisterScreen extends StatefulWidget {
