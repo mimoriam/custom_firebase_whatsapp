@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_firebase_whatsapp/constants/constants.dart';
 
@@ -42,6 +43,8 @@ class _HomeScreenState extends State<HomeScreen>
   final tabsCount = 5;
 
   var isDialOpen = ValueNotifier<bool>(false);
+
+  final auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -107,8 +110,10 @@ class _HomeScreenState extends State<HomeScreen>
                         Padding(
                           padding: const EdgeInsets.only(right: 16),
                           child: GestureDetector(
-                            onTap: () {
-                              GoRouter.of(context).go('/login');
+                            onTap: () async  {
+
+                              await auth.signOut();
+                              // GoRouter.of(context).go('/login');
                             },
                             child: const Icon(Icons.search),
                           ),

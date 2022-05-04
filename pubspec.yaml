@@ -53,6 +53,12 @@ dependencies:
   form_builder_validators: ^8.1.1
   back_button_interceptor: ^5.0.2
 
+  # Firebase:
+  firebase_core: ^1.16.0
+  firebase_auth: ^3.3.17
+  flutterfire_ui: ^0.4.0+5
+  cloud_firestore: ^3.1.14
+
   # Animations:
 
 dev_dependencies:
