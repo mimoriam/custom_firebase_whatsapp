@@ -20,10 +20,11 @@ class _AuthCheckScreenPartTwoState extends State<AuthCheckScreenPartTwo> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
+      // stream: FirebaseAuth.instance.authStateChanges(),
       stream: Auth(auth: _auth).user,
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+      builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
-          debugPrint(snapshot.data);
+          debugPrint(snapshot.data.toString());
 
           // If user's Id == null, go to Login Page, otherwise Home:
           if (snapshot.data?.uid == null) {
@@ -39,7 +40,7 @@ class _AuthCheckScreenPartTwoState extends State<AuthCheckScreenPartTwo> {
           );
         } else {
           return const Scaffold(
-            body : Center(
+            body: Center(
               child: Text("Boohoo222~"),
             ),
           );
