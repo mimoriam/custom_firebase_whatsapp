@@ -8,6 +8,9 @@ import '../../constants/constants.dart';
 /// Widgets:
 
 /// Services:
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../../services/auth.dart';
 
 /// State:
 
@@ -27,6 +30,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -42,7 +48,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
-    GoRouter.of(context).pop();
+    // GoRouter.of(context).pop();
+    Navigator.pop(context);
     return true;
   }
 
@@ -50,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(kAppBarColor),
+        backgroundColor: const Color(kAppBarColor),
         title: const Text("Register"),
       ),
       body: SafeArea(
@@ -99,12 +106,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                final String? returnValue = await Auth(auth: _auth).createAccount(
+                                  displayName: "Mimo",
+                                  email: _formKey.currentState?.fields['email']?.value,
+                                  password: _formKey.currentState?.fields['password']?.value,
+                                );
+
+                                if (returnValue == "Success") {
+                                  _formKey.currentState?.reset();
+                                  // GoRouter.of(context).pop();
+                                  Navigator.pop(context);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(returnValue ?? "Null"),
+                                    ),
+                                  );
+                                }
+                              },
                               child: const Text("Create Account"),
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                GoRouter.of(context).pop();
+                                // GoRouter.of(context).pop();
+                                Navigator.pop(context);
                               },
                               child: const Text("Go to Login"),
                             ),

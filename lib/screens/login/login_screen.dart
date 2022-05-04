@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:custom_firebase_whatsapp/screens/register/register_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 
@@ -17,6 +20,8 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../services/auth.dart';
+
 /// Entry Point:
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -26,6 +31,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -81,16 +89,47 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () {
-                                GoRouter.of(context).go('/home');
+                              onPressed: () async {
+                                _formKey.currentState?.save();
+
+                                if (_formKey.currentState!.validate()) {
+                                  await Auth(auth: _auth).signIn(
+                                    email: _formKey.currentState?.fields['email']?.value,
+                                    password: _formKey.currentState?.fields['password']?.value,
+                                  );
+
+                                  // if (returnValue == "Success") {
+                                  //   _formKey.currentState?.reset();
+                                  // } else {
+                                  //   ScaffoldMessenger.of(context).showSnackBar(
+                                  //     SnackBar(
+                                  //       content: Text(returnValue ?? "Null"),
+                                  //     ),
+                                  //   );
+                                  // }
+                                } else {
+                                  debugPrint("Validation Failed!");
+                                }
+
+                                // GoRouter.of(context).go('/home');
                               },
                               child: const Text("Sign In"),
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                GoRouter.of(context).push('/register');
+                                // GoRouter.of(context).push('/register');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                                );
                               },
                               child: const Text("Register"),
+                            ),
+                            ElevatedButton(
+                              onPressed: () async {
+                                await Auth(auth: _auth).signInWithGoogle();
+                              },
+                              child: Text("Sign in with Google"),
                             ),
                           ],
                         ),
